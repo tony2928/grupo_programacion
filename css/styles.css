@@ -20,6 +20,11 @@
     user-select: none;
 }
 
+@media (max-width: 768px) {
+    .botones {
+        height: 70px;
+    }
+}
 
 .button-background-hover-left {
     background-color: transparent;
