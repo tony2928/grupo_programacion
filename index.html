@@ -21,11 +21,33 @@
 
         <div class="row d-flex justify-content-center">
 
-            <div class="btn-group button-slider">
+            <div class="col-md-6 col-sm-12 btn-group button-slider">
 
-                <div class="col md-2 d-flex justify-content-center"><button type="button" name="" id="boton-horario" class="botones btn-lg">Tareas</button></div>
-                <div class="col md-2 d-flex justify-content-center"><button type="button" name="" id="" class="botones btn-lg">Actividades</button></div>
-                <div class="col md-2 d-flex justify-content-center"><button type="button" name="" id="" class="botones btn-lg">Horario</button></div>
+                <div id="button-background" class="col-md-12 button-background"></div>
+
+                <div class="col d-flex justify-content-center">
+                    <button type="button" name="" id="boton-tareas" class="botones btn-lg">
+                        <span>Tareas</span>
+                    </button>
+                    <div class="button-background-hover-left"></div>
+                </div>
+
+
+                <div class="col d-flex justify-content-center">
+                    <button type="button" name="" id="boton-actividades" class="botones btn-lg">
+                        <span>Actividades</span>
+                    </button>
+                    <div class="button-background-hover-center"></div>
+                </div>
+
+
+                <div class="col d-flex justify-content-center">
+                    <button type="button" name="" id="boton-horario" class="botones btn-lg">
+                        <span>Horario</span>
+                    </button>
+                    <div class="button-background-hover-right"></div>
+                </div>
+
 
             </div>
 
@@ -34,6 +56,8 @@
 
 
     </div>
+
+    <script src="js/index.js"></script>
 
 </body>
 
