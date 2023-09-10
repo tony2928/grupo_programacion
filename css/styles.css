@@ -5,10 +5,9 @@
 
 .button-slider {
     padding: 0px;
-    /* gray border */
     border: 2px solid #bdbcbc;
     border-radius: 100px;
-    /* width: 50%; */
+    margin-bottom: 20px; 
 }
 
 .botones {
@@ -81,7 +80,7 @@
     margin: 0px;
     border: none;
     border-radius: 30px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     pointer-events: none;
     z-index: 900;
     
@@ -121,7 +120,17 @@
 */
 
 .container-activo {
-    display: block;
+    display: block !important;
+}
+
+.row-containers {
+    height: 150px;
+}
+
+.col-containers {
+    padding: 15px;
+    background-color: aquamarine;
+    border-radius: 45px;
 }
 
 #container-tareas {

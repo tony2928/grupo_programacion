@@ -1,13 +1,14 @@
 let botones = document.querySelectorAll(".botones");
 let button_background = document.getElementById("button-background");
+let button_tareas = document.getElementById("boton-tareas");
 let boton_active = null 
 // obtener containers
 let container_tareas = document.getElementById("container-tareas");
 let container_actividades = document.getElementById("container-actividades");
 let container_horario = document.getElementById("container-horario");
 
-
 botones.forEach((boton, index) => {
+    button_tareas.click();
     boton.addEventListener("click", () => {
         
         //añadir clase active
