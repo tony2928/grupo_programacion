@@ -75,7 +75,7 @@ botones.forEach((boton, index) => {
 
 function more(page) {
     console.log(page)
-    window.location.href = "./tareas/" + page + ".html"
+    window.location.href = "./tarea.php?t=" + page;
 }
 
 
