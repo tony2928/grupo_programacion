@@ -9,8 +9,8 @@ function viewFull(imgRoute) {
     body.style.overflow = 'hidden';
     var windowY = window.scrollY || window.pageYOffset;
     var windowX = window.scrollX || window.pageXOffset;
-    image_fullscreen.style.top = window.scrollY || window.pageYOffset;
-    image_fullscreen.style.left = window.scrollX || window.pageXOffset;
+    image_fullscreen.style.top = windowY + 'px';
+    image_fullscreen.style.left = windowX + 'px';
 }
 
 function exitFull() {
