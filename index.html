@@ -11,109 +11,132 @@
 
 <body>
 
-    <div class="container-fluid">
+    <div class="container-fluid container-everything">
 
-        <div class="row top-bar">
-            <div class="col d-flex justify-content-center">
-                <h2>5° "A" Programación Matutino</h2>
-            </div>
-        </div>
+        <div class="container-fluid container-top">
 
-        <div class="row d-flex justify-content-center">
-
-            <div class="col-md-6 col-sm-12 btn-group button-slider">
-
-                <div id="button-background" class="col-md-12 button-background"></div>
-
+            <div class="row top-bar">
                 <div class="col d-flex justify-content-center">
-                    <button type="button" name="" id="boton-tareas" class="botones btn-lg">
-                        <span>Tareas</span>
-                    </button>
-                    <div class="button-background-hover-left"></div>
+                    <h2>5° "A" Programación Matutino</h2>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+
+                <div class="col-md-6 col-sm-12 btn-group button-slider">
+
+                    <div id="button-background" class="col-md-12 button-background"></div>
+
+                    <div class="col d-flex justify-content-center">
+                        <button type="button" name="" id="boton-tareas" class="botones btn-lg">
+                            <span>Tareas</span>
+                        </button>
+                        <div class="button-background-hover-left"></div>
+                    </div>
+
+
+                    <div class="col d-flex justify-content-center">
+                        <button type="button" name="" id="boton-actividades" class="botones btn-lg">
+                            <span>Actividades</span>
+                        </button>
+                        <div class="button-background-hover-center"></div>
+                    </div>
+
+
+                    <div class="col d-flex justify-content-center">
+                        <button type="button" name="" id="boton-horario" class="botones btn-lg">
+                            <span>Horario</span>
+                        </button>
+                        <div class="button-background-hover-right"></div>
+                    </div>
+
                 </div>
 
+            </div>
 
-                <div class="col d-flex justify-content-center">
-                    <button type="button" name="" id="boton-actividades" class="botones btn-lg">
-                        <span>Actividades</span>
-                    </button>
-                    <div class="button-background-hover-center"></div>
+        </div>
+
+        <div class="container-fluid container-varios">
+
+            <div id="container-tareas" class="container container-all">
+
+                <div class="row gap-5 row-containers d-flex justify-content-center">
+
+                    <div class="col-md-3 col-sm-10 col-containers">
+
+                        <div class="row">
+                            <span class="titulo-tarea">Traducir texto al español</span>
+                        </div>
+
+                        <img class="imagen-tarea" src="img/ingles/email.jpg" alt="">
+
+                        <div class="circulo c-ingles my-tooltip" data-tooltip="Inglés"></div>
+
+                        <div onclick="more('translate_email')" value="translate_email.html" class="more my-tooltip" data-tooltip="Ver más"></div>
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-10 col-containers">
+
+                        <span class="titulo-tarea">Nada</span>
+
+                        <div class="circulo " data-tooltip="nada"></div>
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-10 col-containers">
+
+                        <span class="titulo-tarea">Nada</span>
+
+                        <div class="circulo " data-tooltip="nada"></div>
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-10 col-containers">
+
+                        <span class="titulo-tarea">Nada</span>
+
+                        <div class="circulo " data-tooltip="nada"></div>
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-10 col-containers">
+
+                        <span class="titulo-tarea">Nada</span>
+
+                        <div class="circulo " data-tooltip="nada"></div>
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-10 col-containers">
+
+                        <span class="titulo-tarea">Nada</span>
+
+                        <div class="circulo " data-tooltip="nada"></div>
+
+                    </div>
+
+
                 </div>
+                
+
+            </div>
 
 
-                <div class="col d-flex justify-content-center">
-                    <button type="button" name="" id="boton-horario" class="botones btn-lg">
-                        <span>Horario</span>
-                    </button>
-                    <div class="button-background-hover-right"></div>
-                </div>
+
+            <div id="container-actividades" class="container">
+
+
+            </div>
+
+
+
+            <div id="container-horario" class="container">
+
 
             </div>
 
         </div>
-
-    </div>
-    
-    
-    <div id="container-tareas" class="container container-all">
-
-        <div class="row gap-5 row-containers d-flex justify-content-center">
-            
-            <div class="col-md-3 col-sm-10 col-containers">
-
-                <span>Hello</span>
-
-            </div>
-
-            <div class="col-md-3 col-sm-10 col-containers">
-
-                <span>Hello</span>
-
-            </div>
-
-            <div class="col-md-3 col-sm-10 col-containers">
-
-                <span>Hello</span>
-
-            </div>
-
-        </div>
-
-        <div class="row gap-5 row-containers d-flex justify-content-center">
-            
-            <div class="col-md-3 col-sm-10 col-containers">
-
-                <span>Hello</span>
-
-            </div>
-
-            <div class="col-md-3 col-sm-10 col-containers">
-
-                <span>Hello</span>
-
-            </div>
-
-            <div class="col-md-3 col-sm-10 col-containers">
-
-                <span>Hello</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <div id="container-actividades" class="container">
-
-
-    </div>
-
-
-
-    <div id="container-horario" class="container">
-
 
     </div>
 

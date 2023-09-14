@@ -1,6 +1,19 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container-everything {
+    height: 100vh;
+}
+
+.container-top {
+    height: 20vh;
+    user-select: none;
+}
+
 .top-bar {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    padding: 10px;
 }
 
 .button-slider {
@@ -23,6 +36,14 @@
 @media (max-width: 768px) {
     .botones {
         height: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .button-background-hover-left,
+    .button-background-hover-center,
+    .button-background-hover-right {
+        display: none;
     }
 }
 
@@ -78,7 +99,7 @@
 }
 
 .button-background {
-    background-color: rgb(102, 211, 75);
+    background-color: rgb(130, 224, 107);
     position: absolute;
     width: 33.33%;
     height: 100%;
@@ -124,6 +145,10 @@
 
 */
 
+.container-varios {
+    height: 80vh;
+}
+
 .container-all {
    /*  */
 }
@@ -132,37 +157,103 @@
     display: block !important;
 }
 
-.row-containers {
-    margin-top: 30px;
-    margin-bottom: 40px;
-    height: 150px;
-}
-
-@media (max-width: 768px) {
-    .row-containers {
-        margin-bottom: 150px;
-    }
-}
-
 .row-containers:nth-child(1) {
     margin-top: 0px;
 }
 
 .col-containers {
+    position: relative;
     padding: 15px;
-    background-color: aquamarine;
+    background-color: whitesmoke;
     border-radius: 45px;
     border: 1px solid #bdbcbc;
+    height: 30vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+
+@media (max-width: 768px) {
+    .col-containers:last-child {
+        margin-bottom: 50px;
+    }
+}
+
+.circulo {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    border: 4px dashed #333;
+    background-color: gray;
+}
+
+.my-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 30px;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.my-tooltip:hover::after {
+    opacity: 1;
+}
+
+.c-ingles {
+    background-color: purple !important;
+}
+
+.more {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    border: 4px dashed #333;
+    background-color: gray;
+    cursor: pointer;
+}
+
+.more::after {
+    width: max-content;
+}
+
+.titulo-tarea {
+    font-size: large;
+    font-weight: 600;
+    user-select: none;
+}
+
+.imagen-tarea {
+    justify-content: center;
+    text-align: center;
+    height: 50%;
+    user-select: none;
+}
+
+
+
+
+
 
 #container-tareas {
     display: none;
 }
 
+#container-actividades {
+    display: none;
+}
 
-
-
-
-#boton-horario ~ .container-horario{
-    display: block;
+#container-horario{
+    display: none;
 }
