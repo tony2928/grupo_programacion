@@ -7,6 +7,10 @@ function viewFull(imgRoute) {
     image_in_fullscreen.src = imgRoute;
     image_fullscreen.style.display = 'block';
     body.style.overflow = 'hidden';
+    var windowY = window.scrollY || window.pageYOffset;
+    var windowX = window.scrollX || window.pageXOffset;
+    image_fullscreen.style.top = window.scrollY || window.pageYOffset;
+    image_fullscreen.style.left = window.scrollX || window.pageXOffset;
 }
 
 function exitFull() {
