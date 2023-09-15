@@ -17,3 +17,7 @@ function exitFull() {
     image_fullscreen.style.display = 'none';
     body.style.overflow = 'auto';
 }
+
+function toHome() {
+    window.location.href = 'index.html';
+}

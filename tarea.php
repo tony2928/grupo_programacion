@@ -74,6 +74,14 @@ $materiaClean = str_replace($acentos, $sinAcentos, $materiaClean);
                 </div>
             </div>
 
+            <div class="row to-home justify-content-center h-25">
+                <div class="col-md-3">
+                    <button onclick="toHome()" type="button" name="" class="">
+                        <span>Regresar</span>
+                    </button>
+                </div>
+            </div>
+
         </div>
 
         <div class="container-fluid container-content">
@@ -85,35 +93,6 @@ $materiaClean = str_replace($acentos, $sinAcentos, $materiaClean);
                     <div class="col">
                         <h3>Descripción:</h3>
                         <p><?php echo $descripcion ?></p>
-                        <p><b>Reading text: An email from a friend</b>
-                            <br>
-                            <br>
-                            Hi Samia,
-                            <br>
-                            <br>
-                            Quick email to say that sounds like a great idea. Saturday is better for me because I'm
-                            meeting my parents on Sunday. So if that's still good for you, why don't you come here? Then
-                            you can see the new flat and all the work we've done on the kitchen since we moved in. We
-                            can eat at home and then go for a walk in the afternoon. It's going to be so good to catch
-                            up finally. I want to hear all about your new job!
-                            <br>
-                            <br>
-                            Our address is 52 Charles Road, but it's a bit difficult to find because the house numbers
-                            are really strange here. If you turn left at the post office and keep going past the big
-                            white house on Charles Road, there's a small side street behind it with the houses 50-56 in.
-                            Don't ask me why the side street doesn't have a different name! But call me if you get lost
-                            and I'll come and get you.
-                            <br>
-                            <br>
-                            Let me know if there's anything you do/don't like to eat. Really looking forward to seeing
-                            you!
-                            <br>
-                            <br>
-                            See you soon!
-                            <br>
-                            <br>
-                            Gregor
-                        </p>
                     </div>
                 </div>
 

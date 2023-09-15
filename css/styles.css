@@ -310,6 +310,93 @@ body {
     }
 }
 
+.to-home button {
+    background-color: rgb(130, 224, 107);
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    user-select: none;
+    border: 3px dashed #333;
+}
+
+/* horario */
+
+.tabla-horario {    
+    user-select: none;
+    text-align: center;
+}
+
+.tabla-horario th {
+    border: 2px solid black;
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(130, 224, 107);
+    color: black;
+    transition: all 0.3s ease-in-out;
+}
+
+.tr-horario {
+    height: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.tr-horario td {
+    border: 2px solid black;
+    padding: 5px;
+    width: 100px;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.tr-horario td:first-child {
+    background-color: rgb(130, 224, 107);
+    color: black;
+    font-weight: 600;
+}
+
+.tr-horario td[data-materia = "ingles"] {
+    background-color: rgb(177, 20, 177);
+    color: white;
+}
+
+.tr-horario td[data-materia = "calculo"] {
+    background-color: rgb(209, 52, 52);
+    color: white;
+}
+
+.tr-horario td[data-materia = "fisica"] {
+    background-color: rgb(45, 184, 45);
+    color: white;
+}
+
+.tr-horario td[data-materia = "ctsv"] {
+    background-color: rgb(255, 255, 0);
+    color: black;
+}
+
+.tr-horario td[data-materia = "sub1"] {
+    background-color: rgb(0, 195, 255);
+    color: black;
+}
+
+.tr-horario td[data-materia = "sub2"] {
+    background-color: rgb(0, 110, 255);
+    color: white;
+}
+
+.tr-horario td[data-materia = "tutoria"] {
+    background-color: rgb(175, 175, 175);
+    color: black;
+}
+
+.tr-horario td[data-materia = "receso"] {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
 /* display none */
 
 #container-tareas {
