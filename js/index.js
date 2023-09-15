@@ -78,4 +78,67 @@ function more(page) {
     window.location.href = "./tarea.php?t=" + page;
 }
 
+// componer el horario en mobile
 
+console.log("obteniendo dia de la semana")
+
+let fecha = new Date();
+let numeroDiaSemana = fecha.getDay();
+let diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Ssbado"];
+let nombreDiaSemana = diasSemana[numeroDiaSemana];
+
+let columnaLunes = document.querySelectorAll((".lunes"));
+let columnaMartes = document.querySelectorAll((".martes"));
+let columnaMiercoles = document.querySelectorAll((".miercoles"));
+let columnaJueves = document.querySelectorAll((".jueves"));
+let columnaViernes = document.querySelectorAll((".viernes"));
+
+function horarioMobile() {
+
+    let anchoPantalla = window.innerWidth;
+    if (anchoPantalla <= 768) {
+        
+        for (let i = 0; i < columnaLunes.length; i++) {
+
+            if (nombreDiaSemana == "Lunes") {
+                columnaMiercoles[i].remove()
+                columnaJueves[i].remove()
+                columnaViernes[i].remove()
+            }
+
+            if (nombreDiaSemana == "Martes") {
+                columnaLunes[i].remove()
+                columnaJueves[i].remove()
+                columnaViernes[i].remove()
+            }
+
+            if (nombreDiaSemana == "Miércoles") {
+                columnaLunes[i].remove()
+                columnaMartes[i].remove()
+                columnaViernes[i].remove()
+            }
+
+            if (nombreDiaSemana == "Jueves") {
+                columnaLunes[i].remove()
+                columnaMartes[i].remove()
+                columnaMiercoles[i].remove()
+            }
+
+            if (nombreDiaSemana == "Viernes") {
+                columnaMartes[i].remove()
+                columnaMiercoles[i].remove()
+                columnaJueves[i].remove()
+            }
+
+            if (nombreDiaSemana == "Sabado" || nombreDiaSemana == "Domingo") {
+                columnaMiercoles[i].remove()
+                columnaJueves[i].remove()
+                columnaViernes[i].remove()
+            }
+
+        }
+    }
+}
+
+window.addEventListener("load", horarioMobile);
+window.addEventListener("resize", horarioMobile);
