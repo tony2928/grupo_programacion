@@ -1,0 +1,28 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container-all {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+
+.center-container {
+    width: 40%;
+}
+
+@media screen and (max-width: 768px) {
+    .center-container {
+        width: 100%;
+    }
+}
+
+h2 {
+    margin-bottom: 0px;
+}

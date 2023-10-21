@@ -16,7 +16,7 @@
 
         <h2>Crear nueva entrada de Tarea</h2>
 
-        <form action="php/db.php" method="post">
+        <form action="php/newTarea.php" method="post">
 
             <div class="label-input">
                 <label for="tarea">Titulo:</label>
@@ -67,8 +67,7 @@
 
             <div class="label-input">
                 <label for="imagenes">Imagenes:</label>
-                <input name="imagenes" id="imagenes" cols="30" rows="1" placeholder='Solo escribe el nombre del archivo'
-                    required>
+                <input name="imagenes" id="imagenes" cols="30" rows="1" placeholder='Solo escribe el nombre del archivo'>
             </div>
 
             <br>
