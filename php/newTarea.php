@@ -49,7 +49,7 @@
 
     } else {
         echo "Error: no se recibieron los datos de la tarea, redireccionando al panel de Administrador...";
-        // header("refresh:3; url=../admin.php");
+        header("refresh:3; url=../admin.php");
     }
 
     // cerrar conexion
