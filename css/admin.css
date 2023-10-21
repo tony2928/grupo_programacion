@@ -1,0 +1,113 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.container-everything {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    width: 50vw;
+    padding: 40px;
+}
+
+@media (max-width: 768px) {
+    .container-everything {
+        width: 100vw;
+    }
+}
+
+.label-input {
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.label-input label {
+    margin-bottom: 5px;
+}
+
+.label-input input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.label-input input:focus {
+    outline: none;
+}
+
+.label-input select {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.label-input select:focus {
+    outline: none;
+}
+
+.label-input textarea {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.label-input textarea:focus {
+    outline: none;
+}
+
+.checkbox-fecha {
+    margin: 0px 15px;
+}
+
+.label-input input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.input-checkbox-fecha {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.input-fecha {
+    width: 100%;
+}
+
+.label-input input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.label-input input[type="submit"]:hover {
+    background-color: #000;
+}
+
+.div-submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#submit {
+    width: 150px;
+}
+
+@media (max-width: 768px) {
+    #submit {
+        width: 60%;
+        height: 60px;
+    }
+}
