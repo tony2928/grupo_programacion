@@ -31,7 +31,7 @@
                     <option value="sinespecificar">Sin especificar</option>
                     <option value="sub1">Sub 1</option>
                     <option value="sub2">Sub 2</option>
-                    <option value="matematicas">Matemáticas</option>
+                    <option value="calculo">Cálculo integral</option>
                     <option value="fisica">Física</option>
                     <option value="ctsv">Ciencia, Tecnologia, Sociedad y Valores</option>
                     <option value="ingles">Inglés</option>

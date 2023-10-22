@@ -93,21 +93,21 @@ $materiaClean = str_replace($acentos, $sinAcentos, $materiaClean);
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row texto-tarea">
                     <div class="col">
                         <h3>Descripción:</h3>
                         <p><?php echo $descripcion ?></p>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row texto-tarea">
                     <div class="col">
                         <img onclick="viewFull('img/<?php echo $materiaClean ?>/<?php echo $imagen ?>')"
                             class="imagen-tarea" src="img/<?php echo $materiaClean ?>/<?php echo $imagen ?>" alt="">
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row texto-tarea">
                     <div class="col">
                         <h3>Fecha de entrega</h3>
                         <p><?php echo $fecha ?></p>
@@ -115,7 +115,7 @@ $materiaClean = str_replace($acentos, $sinAcentos, $materiaClean);
                 </div>
 
 
-                <div class="row">
+                <div class="row texto-tarea">
                     <div class="col">
                         <h3>Materia</h3>
                         <p><?php echo $materia ?></p>

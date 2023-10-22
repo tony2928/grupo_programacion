@@ -31,6 +31,36 @@ for ($i = 0; $i < $result->num_rows; $i++) {
     }
 }
 
+function materiaAcentos($materia_sin_acentos) {
+    switch ($materia_sin_acentos) {
+        case "ingles":
+            $materia_acentos = "Inglés";
+            break;
+        case "calculo":
+            $materia_acentos = "Cálculo integral";
+            break;
+        case "fisica":
+            $materia_acentos = "Física";
+            break;
+        case "tutoria":
+            $materia_acentos = "Tutoría";
+            break;
+        case "sub1":
+            $materia_acentos = "Sub 1";
+            break;
+        case "sub2":
+            $materia_acentos = "Sub 2";
+            break;
+        case "ctsv":
+            $materia_acentos = "C.T.S.V.";
+            break;
+        default:
+            $materia_acentos = $materia_sin_acentos;
+    }
+    return $materia_acentos;
+}
+
+
 ?>
 
 
@@ -107,6 +137,13 @@ for ($i = 0; $i < $result->num_rows; $i++) {
                         $result = $connect->query($sql);
                         $row = $result->fetch_assoc();
 
+                        $titulo = "Nada";
+                        $materia = "Nada";
+                        $descripcion = "";
+                        $fecha = "";
+                        $imagenes = "";
+                        $id = "";
+
                         if ($result->num_rows > 0) {
                             $titulo = $row["titulo_tarea"];
                             $materia = $row["materia_tarea"];
@@ -114,6 +151,7 @@ for ($i = 0; $i < $result->num_rows; $i++) {
                             $fecha = $row["fecha_entrega"];
                             $imagenes = $row["imagenes_tarea"];
                             $id = $row["id_tarea"];
+                            $circuloDerecha = '<div onclick="more(' . $id . ')" class="more my-tooltip" data-tooltip="Ver más"></div>';
                         } else {
                             $titulo = "Nada";
                             $materia = "Nada";
@@ -121,87 +159,286 @@ for ($i = 0; $i < $result->num_rows; $i++) {
                             $fecha = "";
                             $imagenes = "";
                             $id = "";
+                            $circuloDerecha = '<div class="my-tooltip" data-tooltip="Nada"></div>';
                         }
 
-                        echo "<script>console.log('Materia: " . $materia . "')</script>";
+                        if ($imagenes == "") {
+                            $imagenes_direccion = "";
+                        } else {
+                            $imagenes_direccion = "src='" . "img/" . $materia . "/" . $imagenes . "'";
+                        }
+
+                        $materia_acentos = materiaAcentos($materia);
 
                         ?>
-
 
                         <div class="row">
-                            <span class="titulo-tarea"><a class="titulo-tarea-enlace" href="#">Traducir texto al español</a></span>
+                            <span class="titulo-tarea" onclick="more('<?php echo $id?>')"><?php echo $titulo?></span>
                         </div>
 
-                        <img class="imagen-container-tarea" src="img/ingles/translate_email.jpg" alt="">
+                        <img class="imagen-container-tarea" <?php echo $imagenes_direccion?> alt="">
 
-                        <div class="circulo c-<?php echo $materia?> my-tooltip" data-tooltip="Inglés"></div>
+                        <div class="circulo c-<?php echo $materia?> my-tooltip" data-tooltip="<?php echo $materia_acentos?>"></div>
 
-                        <div onclick="more('1')" value="translate_email.html" class="more my-tooltip" data-tooltip="Ver más"></div>
+                        <?php echo $circuloDerecha?>
+
+                    </div>
+
+                    <!-- ---------- -->
+
+                    <div class="col-md-3 col-sm-10 col-containers">
+
+                    <?php
+
+$sql = "SELECT * FROM tareas ORDER BY id_tarea ASC LIMIT 1,1";
+
+$result = $connect->query($sql);
+$row = $result->fetch_assoc();
+
+$titulo = "Nada";
+$materia = "Nada";
+$descripcion = "";
+$fecha = "";
+$imagenes = "";
+$id = "";
+
+if ($result->num_rows > 0) {
+    $titulo = $row["titulo_tarea"];
+    $materia = $row["materia_tarea"];
+    $descripcion = $row["descripcion_tarea"];
+    $fecha = $row["fecha_entrega"];
+    $imagenes = $row["imagenes_tarea"];
+    $id = $row["id_tarea"];
+    $circuloDerecha = '<div onclick="more(' . $id . ')" class="more my-tooltip" data-tooltip="Ver más"></div>';
+} else {
+    $titulo = "Nada";
+    $materia = "Nada";
+    $descripcion = "";
+    $fecha = "";
+    $imagenes = "";
+    $id = "";
+    $circuloDerecha = '<div class="my-tooltip" data-tooltip="Nada"></div>';
+}
+
+if ($imagenes == "") {
+    $imagenes_direccion = "";
+} else {
+    $imagenes_direccion = "src='" . "img/" . $materia . "/" . $imagenes . "'";
+}
+
+$materia_acentos = materiaAcentos($materia);
+
+?>
+
+                        <div class="row">
+                            <span class="titulo-tarea" onclick="more('<?php echo $id?>')"><?php echo $titulo?></span>
+                        </div>
+
+                        <img class="imagen-container-tarea" <?php echo $imagenes_direccion?> alt="">
+
+                        <div class="circulo c-<?php echo $materia?> my-tooltip" data-tooltip="<?php echo $materia_acentos?>"></div>
+
+                        <?php echo $circuloDerecha?>
+
+                    </div>
+
+                    <!-- ---------- -->
+
+                    <div class="col-md-3 col-sm-10 col-containers">
+
+                    <?php
+
+$sql = "SELECT * FROM tareas ORDER BY id_tarea ASC LIMIT 2,2";
+
+$result = $connect->query($sql);
+$row = $result->fetch_assoc();
+
+if ($result->num_rows > 0) {
+    $titulo = $row["titulo_tarea"];
+    $materia = $row["materia_tarea"];
+    $descripcion = $row["descripcion_tarea"];
+    $fecha = $row["fecha_entrega"];
+    $imagenes = $row["imagenes_tarea"];
+    $id = $row["id_tarea"];
+    $circuloDerecha = '<div onclick="more(' . $id . ')" class="more my-tooltip" data-tooltip="Ver más"></div>';
+} else {
+    $titulo = "Nada";
+    $materia = "Nada";
+    $descripcion = "";
+    $fecha = "";
+    $imagenes = "";
+    $id = "";
+    $circuloDerecha = '<div class="my-tooltip" data-tooltip="Nada"></div>';
+}
+
+if ($imagenes == "") {
+    $imagenes_direccion = "";
+} else {
+    $imagenes_direccion = "src='" . "img/" . $materia . "/" . $imagenes . "'";
+}
+
+$materia_acentos = materiaAcentos($materia);
+
+?>
+
+                        <div class="row">
+                            <span class="titulo-tarea" onclick="more('<?php echo $id?>')"><?php echo $titulo?></span>
+                        </div>
+
+                        <img class="imagen-container-tarea" <?php echo $imagenes_direccion?> alt="">
+
+                        <div class="circulo c-<?php echo $materia?> my-tooltip" data-tooltip="<?php echo $materia_acentos?>"></div>
+
+                        <?php echo $circuloDerecha?>
+
+                    </div>
+
+                    <!-- ---------- -->
+
+                    <div class="col-md-3 col-sm-10 col-containers">
+
+                    <?php
+
+$sql = "SELECT * FROM tareas ORDER BY id_tarea ASC LIMIT 3,3";
+
+$result = $connect->query($sql);
+$row = $result->fetch_assoc();
+
+if ($result->num_rows > 0) {
+    $titulo = $row["titulo_tarea"];
+    $materia = $row["materia_tarea"];
+    $descripcion = $row["descripcion_tarea"];
+    $fecha = $row["fecha_entrega"];
+    $imagenes = $row["imagenes_tarea"];
+    $id = $row["id_tarea"];
+    $circuloDerecha = '<div onclick="more(' . $id . ')" class="more my-tooltip" data-tooltip="Ver más"></div>';
+} else {
+    $titulo = "Nada";
+    $materia = "Nada";
+    $descripcion = "";
+    $fecha = "";
+    $imagenes = "";
+    $id = "";
+    $circuloDerecha = '<div class="my-tooltip" data-tooltip="Nada"></div>';
+}
+
+if ($imagenes == "") {
+    $imagenes_direccion = "";
+} else {
+    $imagenes_direccion = "src='" . "img/" . $materia . "/" . $imagenes . "'";
+}
+
+$materia_acentos = materiaAcentos($materia);
+
+?>
+
+                        <div class="row">
+                            <span class="titulo-tarea" onclick="more('<?php echo $id?>')"><?php echo $titulo?></span>
+                        </div>
+
+                        <img class="imagen-container-tarea" <?php echo $imagenes_direccion?> alt="">
+
+                        <div class="circulo c-<?php echo $materia?> my-tooltip" data-tooltip="<?php echo $materia_acentos?>"></div>
+
+                        <?php echo $circuloDerecha?>
 
                     </div>
 
                     <div class="col-md-3 col-sm-10 col-containers">
 
-                        <?php
+                    <?php
 
-                        $sql = "SELECT * FROM tareas ORDER BY id_tarea ASC LIMIT 1,1";
+$sql = "SELECT * FROM tareas ORDER BY id_tarea ASC LIMIT 4,4";
 
-                        $result = $connect->query($sql);
-                        $row = $result->fetch_assoc();
+$result = $connect->query($sql);
+$row = $result->fetch_assoc();
 
-                        if ($result->num_rows > 0) {
-                            $titulo = $row["titulo_tarea"];
-                            $materia = $row["materia_tarea"];
-                            $descripcion = $row["descripcion_tarea"];
-                            $fecha = $row["fecha_entrega"];
-                            $imagenes = $row["imagenes_tarea"];
-                            $id = $row["id_tarea"];
-                        } else {
-                            $titulo = "Nada";
-                            $materia = "Nada";
-                            $descripcion = "";
-                            $fecha = "";
-                            $imagenes = "";
-                            $id = "";
-                        }
-                        
-                        ?>
+if ($result->num_rows > 0) {
+    $titulo = $row["titulo_tarea"];
+    $materia = $row["materia_tarea"];
+    $descripcion = $row["descripcion_tarea"];
+    $fecha = $row["fecha_entrega"];
+    $imagenes = $row["imagenes_tarea"];
+    $id = $row["id_tarea"];
+    $circuloDerecha = '<div onclick="more(' . $id . ')" class="more my-tooltip" data-tooltip="Ver más"></div>';
+} else {
+    $titulo = "Nada";
+    $materia = "Nada";
+    $descripcion = "";
+    $fecha = "";
+    $imagenes = "";
+    $id = "";
+    $circuloDerecha = '<div class="my-tooltip" data-tooltip="Nada"></div>';
+}
 
-                        <span class="titulo-tarea">Nada</span>
+if ($imagenes == "") {
+    $imagenes_direccion = "";
+} else {
+    $imagenes_direccion = "src='" . "img/" . $materia . "/" . $imagenes . "'";
+}
 
-                        <div class="circulo my-tooltip " data-tooltip="nada"></div>
+$materia_acentos = materiaAcentos($materia);
 
-                    </div>
+?>
 
-                    <div class="col-md-3 col-sm-10 col-containers">
+                        <div class="row">
+                            <span class="titulo-tarea" onclick="more('<?php echo $id?>')"><?php echo $titulo?></span>
+                        </div>
 
-                        <span class="titulo-tarea">Nada</span>
+                        <img class="imagen-container-tarea" <?php echo $imagenes_direccion?> alt="">
 
-                        <div class="circulo my-tooltip " data-tooltip="nada"></div>
+                        <div class="circulo c-<?php echo $materia?> my-tooltip" data-tooltip="<?php echo $materia_acentos?>"></div>
 
-                    </div>
-
-                    <div class="col-md-3 col-sm-10 col-containers">
-
-                        <span class="titulo-tarea">Nada</span>
-
-                        <div class="circulo my-tooltip " data-tooltip="nada"></div>
-
-                    </div>
-
-                    <div class="col-md-3 col-sm-10 col-containers">
-
-                        <span class="titulo-tarea">Nada</span>
-
-                        <div class="circulo my-tooltip " data-tooltip="nada"></div>
+                        <?php echo $circuloDerecha?>
 
                     </div>
 
                     <div class="col-md-3 col-sm-10 col-containers">
 
-                        <span class="titulo-tarea">Nada</span>
+                    <?php
 
-                        <div class="circulo my-tooltip " data-tooltip="nada"></div>
+$sql = "SELECT * FROM tareas ORDER BY id_tarea ASC LIMIT 5,5";
+
+$result = $connect->query($sql);
+$row = $result->fetch_assoc();
+
+if ($result->num_rows > 0) {
+    $titulo = $row["titulo_tarea"];
+    $materia = $row["materia_tarea"];
+    $descripcion = $row["descripcion_tarea"];
+    $fecha = $row["fecha_entrega"];
+    $imagenes = $row["imagenes_tarea"];
+    $id = $row["id_tarea"];
+    $circuloDerecha = '<div onclick="more(' . $id . ')" class="more my-tooltip" data-tooltip="Ver más"></div>';
+} else {
+    $titulo = "Nada";
+    $materia = "Nada";
+    $descripcion = "";
+    $fecha = "";
+    $imagenes = "";
+    $id = "";
+    $circuloDerecha = '<div class="my-tooltip" data-tooltip="Nada"></div>';
+}
+
+if ($imagenes == "") {
+    $imagenes_direccion = "";
+} else {
+    $imagenes_direccion = "src='" . "img/" . $materia . "/" . $imagenes . "'";
+}
+
+$materia_acentos = materiaAcentos($materia);
+
+?>
+
+                        <div class="row">
+                            <span class="titulo-tarea" onclick="more('<?php echo $id?>')"><?php echo $titulo?></span>
+                        </div>
+
+                        <img class="imagen-container-tarea" <?php echo $imagenes_direccion?> alt="">
+
+                        <div class="circulo c-<?php echo $materia?> my-tooltip" data-tooltip="<?php echo $materia_acentos?>"></div>
+
+                        <?php echo $circuloDerecha?>
 
                     </div>
 

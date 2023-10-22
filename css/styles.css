@@ -221,6 +221,10 @@ body {
     background-color: rgb(177, 20, 177) !important;
 }
 
+.c-fisica {
+    background-color: rgb(45, 184, 45) !important;
+}
+
 .txt-ingles {
     color: rgb(177, 20, 177);
 }
@@ -247,15 +251,9 @@ body {
     user-select: none;
 }
 
-.titulo-tarea-enlace {
-    color: black;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-}
-
-.titulo-tarea-enlace:hover {
+.titulo-tarea:hover {
+    cursor: pointer;
     text-decoration: underline;
-    color: #585858;
 }
 
 .imagen-container-tarea {
@@ -340,7 +338,7 @@ body {
 .row-title-tarea {
     background-color: rgb(107, 191, 224);
     border: 3px dashed #333;
-
+    margin-bottom: 20px;
 }
 
 .svg-and-txt {
@@ -365,6 +363,10 @@ body {
 
 .svg-tarea {
     height: 30px;
+}
+
+.texto-tarea {
+    font-size: large;
 }
 
 /* horario */
