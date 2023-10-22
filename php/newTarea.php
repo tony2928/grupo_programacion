@@ -36,16 +36,21 @@
             $imagenes = "";
         }
         
-        // insertar datos en db
+        // insertar datos en db en tablas tareas (actuales) y tareas_todas
 
         $sql = "INSERT INTO tareas (titulo_tarea, materia_tarea, descripcion_tarea, fecha_entrega, imagenes_tarea) VALUES ('$tarea', '$materia', '$descripcion', '$fecha', '$imagenes')";
+        $sql2 = "INSERT INTO tareas_todas (titulo_tarea, materia_tarea, descripcion_tarea, fecha_entrega, imagenes_tarea) VALUES ('$tarea', '$materia', '$descripcion', '$fecha', '$imagenes')";
 
-        if ($connect->query($sql) === TRUE) {
-            echo "Nueva tarea creada exitosamente, redireccionando al panel de Administrador...";
+        if ($connect->query($sql) === TRUE && $connect->query($sql2) === TRUE) {
+            echo "Tarea creada exitosamente, redireccionando al panel de Administrador...";
             header("refresh:3; url=../admin.php");
         } else {
-            echo "Error: " . $sql . "<br>";
+            echo "Error: " . $sql . "<br>" . $connect->error;
+            echo "Error: " . $sql2 . "<br>" . $connect->error;
+            echo "Error: no se pudo crear la tarea, redireccionando al panel de Administrador...";
+            header("refresh:3; url=../admin.php");
         }
+        
 
     } else {
         echo "Error: no se recibieron los datos de la tarea, redireccionando al panel de Administrador...";

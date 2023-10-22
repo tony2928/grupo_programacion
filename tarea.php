@@ -12,7 +12,7 @@ include "php/db.php";
 
 // obtener datos de la tarea
 
-$sql = "SELECT * FROM tareas WHERE id_tarea = '$tarea'";
+$sql = "SELECT * FROM tareas_todas WHERE id_tarea = '$tarea'";
 
 $result = mysqli_query($connect, $sql);
 
@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
         $materia = $row["materia_tarea"];
     }
 } else {
-    header("Location: index.html");
+    header("Location: index.php");
 }
 
 mysqli_close($connect);

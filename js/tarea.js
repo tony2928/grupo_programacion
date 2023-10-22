@@ -19,5 +19,5 @@ function exitFull() {
 }
 
 function toHome() {
-    window.location.href = 'index.html';
+    window.location.href = 'index.php';
 }

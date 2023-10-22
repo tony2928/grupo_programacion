@@ -1,3 +1,39 @@
+<?php
+
+include "php/db.php";
+
+$sql = "SELECT * FROM tareas";
+
+$result = $connect->query($sql);
+
+// formato de fecha 23/10/23
+$fecha_actual = date("d/m/y");
+
+// Convierte las fechas en objetos DateTime usando un formato específico
+$fecha_actual_obj = date_create_from_format('d/m/y', $fecha_actual);
+
+// Obtén timestamps de los objetos DateTime
+$timestamp_actual = $fecha_actual_obj->getTimestamp();
+echo "<script>console.log('Timestamp actual: " . $timestamp_actual . "')</script>";
+
+for ($i = 0; $i < $result->num_rows; $i++) {
+    $row = $result->fetch_assoc();
+    $fecha_entrega = $row["fecha_entrega"];
+    $fecha_entrega_obj = date_create_from_format('d/m/y', $fecha_entrega);
+    $timestamp_entrega = $fecha_entrega_obj->getTimestamp();
+
+
+    if ($timestamp_entrega < $timestamp_actual) {
+        echo "<script>console.log('Tarea(s) eliminada')</script>";
+        $sql2 = "DELETE FROM tareas WHERE id_tarea = " . $row["id_tarea"];
+        if ($connect->query($sql2) === TRUE) {
+        }
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,19 +100,72 @@
 
                     <div class="col-md-3 col-sm-10 col-containers">
 
+                        <?php
+
+                        $sql = "SELECT * FROM tareas ORDER BY id_tarea ASC LIMIT 1";
+
+                        $result = $connect->query($sql);
+                        $row = $result->fetch_assoc();
+
+                        if ($result->num_rows > 0) {
+                            $titulo = $row["titulo_tarea"];
+                            $materia = $row["materia_tarea"];
+                            $descripcion = $row["descripcion_tarea"];
+                            $fecha = $row["fecha_entrega"];
+                            $imagenes = $row["imagenes_tarea"];
+                            $id = $row["id_tarea"];
+                        } else {
+                            $titulo = "Nada";
+                            $materia = "Nada";
+                            $descripcion = "";
+                            $fecha = "";
+                            $imagenes = "";
+                            $id = "";
+                        }
+
+                        echo "<script>console.log('Materia: " . $materia . "')</script>";
+
+                        ?>
+
+
                         <div class="row">
                             <span class="titulo-tarea"><a class="titulo-tarea-enlace" href="#">Traducir texto al español</a></span>
                         </div>
 
                         <img class="imagen-container-tarea" src="img/ingles/translate_email.jpg" alt="">
 
-                        <div class="circulo c-ingles my-tooltip" data-tooltip="Inglés"></div>
+                        <div class="circulo c-<?php echo $materia?> my-tooltip" data-tooltip="Inglés"></div>
 
                         <div onclick="more('1')" value="translate_email.html" class="more my-tooltip" data-tooltip="Ver más"></div>
 
                     </div>
 
                     <div class="col-md-3 col-sm-10 col-containers">
+
+                        <?php
+
+                        $sql = "SELECT * FROM tareas ORDER BY id_tarea ASC LIMIT 1,1";
+
+                        $result = $connect->query($sql);
+                        $row = $result->fetch_assoc();
+
+                        if ($result->num_rows > 0) {
+                            $titulo = $row["titulo_tarea"];
+                            $materia = $row["materia_tarea"];
+                            $descripcion = $row["descripcion_tarea"];
+                            $fecha = $row["fecha_entrega"];
+                            $imagenes = $row["imagenes_tarea"];
+                            $id = $row["id_tarea"];
+                        } else {
+                            $titulo = "Nada";
+                            $materia = "Nada";
+                            $descripcion = "";
+                            $fecha = "";
+                            $imagenes = "";
+                            $id = "";
+                        }
+                        
+                        ?>
 
                         <span class="titulo-tarea">Nada</span>
 
@@ -216,6 +305,12 @@
 
     </div>
 
+
+    <?php
+    
+    $connect->close();
+
+    ?>
 
     <script src="js/index.js"></script>
 
